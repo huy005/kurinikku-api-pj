@@ -1,22 +1,24 @@
 This API application is used for the management of a clinic with interacting between with Entities[User ->(Patient, Doctor, Admin)].
 
-\*Prerequisites:
-pre1/ Run Sql file: resources/static/sql/clinicpj_db.sql
-pre2/ Prepare support tool like Postman or Swagger (optional)
-pre3/ Set your real email and password into the following:
-pre3.1/ application.properties
-pre3.2/ BusinessComponent class
+\*Prerequisites:  
+pre1/ Run Sql file: resources/static/sql/clinicpj_db.sql   
+pre2/ Prepare support tool like Postman or Swagger (optional)  
+pre3/ Set your real email and password into the following:  
+pre3.1/ application.properties   
+pre3.2/ BusinessComponent class   
 pre3.3/ JasperReportsImp class -> Session and Message
-
+---
 I/Authentication Functions
+
 1/Sign-up:
+
 \*Note:
-Role: USER -> Unauthorized
-roleId(1:DOCTOR, 2:PATIENT, 3:ADMIN) -> Authorized
+Role: USER -> Unauthorized.  
+roleId(1:DOCTOR, 2:PATIENT, 3:ADMIN) -> Authorized.
 isActive(0:Locked, 1:Unlocked)
 
-HTTP method: POST
-URL: http://localhost:8005/auth/users
+HTTP method: POST,
+URL: http://localhost:8005/auth/users  
 Input:
 {
 "userName":"Nguyen Van Minh",
@@ -33,83 +35,86 @@ Input:
 "roleId":2,
 "roleName":"PATIENT"
 }
-}
+}  
 Output:
 {
 "status": 200,
 "responseContent": "Your account registered successfully!",
 "timeStamp": 1714812234885
 }
-
+---
 2/Login:
 \*Note:
-Role: PATIENT, DOCTOR, ADMIN
-Works with JWT(Token)
+Role: PATIENT, DOCTOR, ADMIN  
+Works with JWT(Token)  
 A real email will be used for EmailConfirmation function
 
-HTTP method: POST
-URL:http://localhost:8005/auth/session
+HTTP method: POST,
+URL:http://localhost:8005/auth/session  
 Input:
 {
 "email":"your real email",
 "password":"123456"
-}
-
+}  
 Output:
 {
 "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZ3V5ZW52YW5taW5oQGVtYWlsLmNvbSIsImlhdCI6MTcxNDgxMjQ3OCwiZXhwIjoxNzE0ODE2MDc4fQ.hSKGbvJdKC8Q7xbOfx6VjaNuJgcTBUYVpLjIVuuWpJA"
 }
-
+---
 3.1/EmailConfirmation
 \*Note:
-Role: PATIENT, DOCTOR, ADMIN
-Works with JWT(Token)
-A real email will be used for EmailConfirmation function
+Role: PATIENT, DOCTOR, ADMIN  
+Works with JWT(Token)  
+A real email will be used for EmailConfirmation function  
 This function just sends a URL with a token to your real email and associated to PasswordReset function below
 
-HTTP method: POST
-Input: URL: http://localhost:8005/auth/users/emailConfirmation?email=yourRealEmail
+HTTP method: POST  
+Input: URL: http://localhost:8005/auth/users/emailConfirmation?email=yourRealEmail  
 Output:
 {
 "status": 200,
 "responseContent": "Sent to Email successfully!",
 "timeStamp": 1714813200108
 }
-
+---
 3.2/PasswordReset
-*Note: Role: PATIENT, DOCTOR, ADMIN
-Works with JWT(Token)
+*Note: Role: PATIENT, DOCTOR, ADMIN  
+Works with JWT(Token)  
 Need to get the token from email of EmailConfirmation function
-HTTP method: POST
-URL:http://localhost:8005/auth/session
+
+HTTP method: POST  
+URL:http://localhost:8005/auth/session  
 Input:
 {
 "token":"The token that sent to email from the previous function",
 "password":"123456",
 "confirmingPassword":"123456"
-}
+}  
 Output:
 {
 "status": 200,
 "responseContent": "Password was updated successfully!",
 "timeStamp": 1714813841997
 }
+---
 II/Patient’s Functions
+
 *Note: Role PATIENT
 
 4/ Outstanding Specializations:
+
 \*Note:
-Show the Outstanding Specializations of Clinics
+Shows the Outstanding Specializations of Clinics  
 Works with JWT(Token)
 
-HTTP method: GET
-URL: http://localhost:8005/patients/specializations/top
+HTTP method: GET  
+URL: http://localhost:8005/patients/specializations/top  
 Input:
 {
 "token":"The token that sent to email from the previous function",
 "password":"123456",
 "confirmingPassword":"123456"
-}
+}  
 Output:
 {
 "status": 200,
@@ -147,20 +152,21 @@ Output:
 ],
 "timeStamp": 1714814587811
 }
-
+---
 5/ Outstanding Clinics:
+
 \*Note:
-Show the Outstanding Clinics
+Shows the Outstanding Clinics  
 Works with JWT(Token)
 
-HTTP method: GET
-URL: http://localhost:8005/patients/clinics/top
+HTTP method: GET  
+URL: http://localhost:8005/patients/clinics/top  
 Input:
 {
 "token":"The token that sent to email from the previous function",
 "password":"123456",
 "confirmingPassword":"123456"
-}
+}  
 Output:
 {
 "status": 200,
@@ -203,20 +209,21 @@ Output:
 ],
 "timeStamp": 1714817266542
 }
-
+---
 6/Personal Info
+
 \*Note:
-Get the present user’s personal infomation
+Gets the present user’s personal information  
 Works with JWT(Token)
 
-HTTP method: GET
-URL: http://localhost:8005/patients/personal-info
+HTTP method: GET  
+URL: http://localhost:8005/patients/personal-info  
 Input:
 {
 "token":"The token that sent to email from the previous function",
 "password":"123456",
 "confirmingPassword":"123456"
-}
+}  
 Output:
 {
 "status": 200,
@@ -234,14 +241,14 @@ Output:
 },
 "timeStamp": 1714817409713
 }
-
+---
 7/Searching By KeyWords
 \*Note:
-Search the information from input with the specified keywords
+Searchs the information from input with the specified keywords  
 Works with JWT(Token)
 
-HTTP method: GET
-URL: http://localhost:8005/patients/clinic-information
+HTTP method: GET  
+URL: http://localhost:8005/patients/clinic-information  
 Input:
 {
 "clinicName":"Clinic-BV001",
@@ -249,7 +256,7 @@ Input:
 "clinicDescription":"BV003 is the best",
 "clinicCost":"2000k",
 "specializationName":"Cardiology"
-}
+}  
 Output:
 {
 "status": 200,
@@ -306,14 +313,15 @@ Output:
 ],
 "timeStamp": 1714817595457
 }
-
+---
 8/Searching by Doctor’s Specialization
+
 \*Note:
-Search the information of the specialization with the relative doctor’s Id
+Searchs the information of the specialization with the relative doctor’s Id  
 Works with JWT(Token)
 
-HTTP method: GET
-Input: URL: http://localhost:8005/patients/doctor-information?id=1
+HTTP method: GET  
+Input: URL: http://localhost:8005/patients/doctor-information?id=1  
 Output:
 {
 "status": 200,
@@ -329,38 +337,42 @@ Output:
 ],
 "timeStamp": 1714817808754
 }
-
+---
 9/Making a schedule:
+
 \*Note:
-Make a schedule with the specified doctor
+Make a schedule with the specified doctor  
 Works with JWT(Token)
 
-HTTP method: GET
-URL: http://localhost:8005/patients/new-schedule
+HTTP method: GET  
+URL: http://localhost:8005/patients/new-schedule  
 Input:
 {
 "userId":1,
 "scheduleDate":"20240108",
 "scheduleTime":"15h19'"
-}
+}  
 Output:
 {
 "status": 200,
 "responseContent": "A new schedule updated successfully!",
 "timeStamp": 1714818202942
 }
-
+---
 III/Doctor’s Functions
+
 \*Note: Role DOCTOR
 
+
 10/ Patient List:
+
 \*Note:
-Get the patient list with the relative doctor’s Id
-Works with JWT(Token)
+Gets the patient list with the relative doctor’s Id  
+Works with JWT(Token)  
 status:(1,"Waiting"), (2,"Processing"), (3,"Ending")
 
-HTTP method: GET
-Input: URL: http://localhost:8005/doctors/user-information
+HTTP method: GET  
+Input: URL: http://localhost:8005/doctors/user-information  
 Output:
 {
 "status": 200,
@@ -404,71 +416,75 @@ Output:
 ],
 "timeStamp": 1714818814995
 }
+---
+11/Schedule Acceptance Or Cancellation:
 
-11/Schedule Acceptance Or Cancallation:
 \*Note:
-Acccept or cancel the schedule with the relative doctor
-Works with JWT(Token)
+Accepts or cancels the schedule with the relative doctor   
+Works with JWT(Token)  
 isReservedOrCancellation: 1 update(accept), 0 delete(cancel)
 
-HTTP method: PUT
-URL: http://localhost:8005/doctors/new-info-schedule
+HTTP method: PUT  
+URL: http://localhost:8005/doctors/new-info-schedule  
 Input:
 {
 "isReservedOrCancellation":1,
 "scheduleId":"6"
-}
+}  
 Output:
 {
 "status": 200,
 "responseContent": "Data updated successfully!",
 "timeStamp": 1714819295705
 }
-or
+or  
 Input2:
 {
 "isReservedOrCancellation":0,
 "scheduleId":"6"
-}
+}  
 Output2:
 {
 "status": 200,
 "responseContent": "Data deleted successfully!",
 "timeStamp": 1714819380275
 }
-
+---
 12/Sending to Email
+
 \*Note:
-Send Patient’s Info to Patient’s email by PDF file
-Send Patient’s Id
-A PDF file will be sent to email as a patient extra info report
+Sends Patient’s Info to Patient’s email by PDF file  
+Sends Patient’s Id  
+A PDF file will be sent to email as a patient extra info report  
 Works with JWT(Token)
 
-HTTP method: PUT
-Input: URL: http://localhost:8005/doctors/jasper/patient-extra-info?id=8
+HTTP method: PUT  
+Input: URL: http://localhost:8005/doctors/jasper/patient-extra-info?id=8  
 Output:
 {
 "status": 200,
 "responseContent": "PDF file sent to the specified email.",
 "timeStamp": 1714819590835
 }
+---
+IV/Admin’s Functions
 
-III/Admin’s Functions
 \*Note: Role ADMIN
 
 13/Locked or Unlocked Users:
-\*Note: Acccept or cancel the schedule with the relative doctor
-Works with JWT(Token)
+
+\*Note: Accepts or cancels the schedule with the relative doctor   
+Works with JWT(Token)  
 isActive(0:Locked, 1:Unlocked)
 
-HTTP method: PUT
-URL: http://localhost:8005/admins/status-activation
+HTTP method: PUT  
+URL: http://localhost:8005/admins/status-activation  
 Input1:
 {
 "email":"lucngocthu@email.com",
 "isActive":0,
 "reason": "You violated the rules."
-}
+}  
 Output1:
 {
 "status": 200,
@@ -487,15 +503,16 @@ Output2:
 "responseContent": "This user is unlocked",
 "timeStamp": 1714823930628
 }
-
+---
 14/ Doctor’s Additional Info
-\*Note: Add a new doctor with the additional fields
-Works with JWT(Token)
-roleId: 1->DOCTOR
+
+\*Note: Adds a new doctor with the additional fields  
+Works with JWT(Token)  
+roleId: 1->DOCTOR  
 isActive(0:Locked, 1:Unlocked)
 
-HTTP method: PUT
-URL: http://localhost:8005/admins/status-activation
+HTTP method: PUT  
+URL: http://localhost:8005/admins/status-activation  
 Input:
 {
 "userName":"Hoang Thi Mai",
@@ -515,21 +532,22 @@ Input:
 "trainingProcessing":"World-class tranning course",
 "achievement":"World-class Gold Badge",
 "department":"one of the most World-class departments "
-}
+}  
 Output:
 {
 "status": 200,
 "responseContent": "A new user registered.",
 "timeStamp": 1714831461202
 }
-
+---
 15/Patient’s Details
+
 \*Note:
-Show patient’s details with specified patient’s id
+Shows patient’s details with specified patient’s id  
 Works with JWT(Token)
 
-HTTP method: PUT
-Input: URL: http://localhost:8005/admins/patient-schedule-extraInfo-details?id=8
+HTTP method: PUT  
+Input: URL: http://localhost:8005/admins/patient-schedule-extraInfo-details?id=8  
 Output:
 {
 "status": 200,
@@ -585,14 +603,15 @@ Output:
 },
 "timeStamp": 1714831883350
 }
-
+---
 16/Doctor’s Details
+
 \*Note:
-Show doctor’s details with specified doctor’s id
+Shows doctor’s details with specified doctor’s id  
 Works with JWT(Token)
 
-HTTP method: PUT
-Input: URL: http://localhost:8005/admins/doctor-schedule-details?id=2
+HTTP method: PUT  
+Input: URL: http://localhost:8005/admins/doctor-schedule-details?id=2  
 Output:
 {
 "doctorDetailsDto": {
