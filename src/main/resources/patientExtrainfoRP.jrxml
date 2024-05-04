@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="05814a91-2fb9-4cb1-9219-883df8b65701">
+	<field name="userName" class="java.lang.String"/>
+	<field name="userBirthDay" class="java.lang.String"/>
+	<field name="userGender" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="userAddress" class="java.lang.String"/>
+	<field name="moreInfo" class="java.lang.String"/>
+	<field name="historyBreath" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="47" y="20" width="460" height="61" uuid="2069f11b-f39c-4594-ad26-da468aa8c55e"/>
+				<textElement textAlignment="Center">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[PATIENT EXTRA INFO REPORT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="142" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ContainerHeight" x="20" y="20" width="150" height="51" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="58163833-2b56-4ee4-b436-12a76a836d1a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Patient's Name :]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ElementGroupHeight" x="180" y="19" width="364" height="51" uuid="a06980b6-2167-4f2f-ade8-a1f9ce7b41a2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{userName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ContainerHeight" x="20" y="80" width="150" height="51" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="121b3d96-9783-4ad0-923a-d4384938e50b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Patient's Email :]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ElementGroupHeight" x="180" y="80" width="364" height="51" uuid="23a991ab-7258-4045-82b6-aa3784f718ba">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="202" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ContainerHeight" x="20" y="11" width="150" height="51" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="1cc9f048-0b5e-4a2b-bdf1-a7a902970275">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Patient's BirthDay :]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ElementGroupHeight" x="180" y="11" width="364" height="51" uuid="40122341-3e59-4dff-a751-78d763616ff2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{userBirthDay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ElementGroupHeight" x="180" y="151" width="364" height="51" uuid="bc6eccb3-dbaa-4432-925b-1165f20582bd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{userGender}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ElementGroupHeight" x="180" y="81" width="364" height="51" uuid="96f80af6-faea-4b64-a49c-f2e71277a32a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{userAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ContainerHeight" x="20" y="81" width="150" height="51" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="f382b5ae-54ac-4e09-af27-a5cfe2b9195f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Patient's Address :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ContainerHeight" x="20" y="151" width="150" height="51" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="e7200f9c-95d7-4f3e-bfe0-749d3b30f542">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Patient's Gender :]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="252" splitType="Stretch">
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ElementGroupHeight" x="182" y="70" width="361" height="51" uuid="72678935-0b28-4d0e-ac90-34e4fe4aba4c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{moreInfo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ContainerHeight" x="20" y="70" width="150" height="51" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="13863214-4cc7-4486-a7e8-39223f958dd3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Patient's More Info :]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ElementGroupHeight" x="180" y="12" width="364" height="51" uuid="b9383dbc-da56-4059-9c79-63f51020ac0a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{historyBreath}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" stretchType="ContainerHeight" x="20" y="10" width="150" height="51" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="7c007cbe-a765-497f-99b6-a9d02541cba9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Patient's History Breath :]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="131" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
