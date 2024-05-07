@@ -317,7 +317,7 @@ Output:
 8/Searching by Doctor’s Specialization
 
 \*Note:
-Searchs the information of the specialization with the relative doctor’s Id  
+Searchs the information of the specialization with the corresponding doctor’s Id  
 Works with JWT(Token)
 
 HTTP method: GET  
@@ -367,7 +367,7 @@ III/Doctor’s Functions
 10/ Patient List:
 
 \*Note:
-Gets the patient list with the relative doctor’s Id  
+Gets the patient list with the corresponding doctor’s Id  
 Works with JWT(Token)  
 status:(1,"Waiting"), (2,"Processing"), (3,"Ending")
 
@@ -420,7 +420,7 @@ Output:
 11/Schedule Acceptance Or Cancellation:
 
 \*Note:
-Accepts or cancels the schedule with the relative doctor   
+Accepts or cancels the schedule with the corresponding doctor   
 Works with JWT(Token)  
 isReservedOrCancellation: 1 update(accept), 0 delete(cancel)
 
