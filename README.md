@@ -1,4 +1,4 @@
-This API application is used for the management of a clinic with interacting between entities[User ->(Patient, Doctor, Admin)].
+This API application is used for the management of a clinic with interacting between the entities[User ->(Patient, Doctor, Admin)].
 
 \*Prerequisites:  
 pre1/ Run Sql file: resources/static/sql/clinicpj_db.sql   
