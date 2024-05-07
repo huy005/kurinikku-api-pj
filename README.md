@@ -473,7 +473,7 @@ IV/Admin’s Functions
 
 13/Locked or Unlocked Users:
 
-\*Note: Accepts or cancels the schedule with the relative doctor   
+\*Note: Accepts or cancels the schedule with the corresponding doctor   
 Works with JWT(Token)  
 isActive(0:Locked, 1:Unlocked)
 
